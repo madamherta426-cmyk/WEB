@@ -1,0 +1,208 @@
+<!DOCTYPE html>
+<html lang="id">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Profil Saya</title>
+    <style>
+        body {
+            font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+            margin: 0;
+            padding: 20px 0;
+            background-color: #2E8B57;
+            color: #333;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            min-height: 100vh;
+        }
+
+        .container {
+            background-color: #fff;
+            width: 90%;
+            max-width: 450px;
+            padding: 30px;
+            border-radius: 15px;
+            box-shadow: 0 10px 25px rgba(0,0,0,0.1);
+            text-align: center;
+            transition: transform 0.3s ease;
+        }
+
+        .container:hover {
+            transform: translateY(-5px);
+        }
+
+        /* Styling untuk Avatar */
+        .profile-pic {
+            width: 120px;
+            height: 120px;
+            border-radius: 50%;
+            margin: 0 auto 15px;
+            display: block;
+            object-fit: cover;
+            border: 3px solid #007bff;
+            background-color: #e7f1ff; /* Warna latar belakang avatar */
+        }
+
+        h1 {
+            margin: 5px 0;
+            font-size: 22px;
+            color: #222;
+        }
+
+        .info-sekolah {
+            font-size: 14px;
+            color: #007bff;
+            font-weight: bold;
+            margin-bottom: 15px;
+        }
+
+        .bio-table {
+            width: 100%;
+            margin: 15px 0;
+            font-size: 14px;
+            text-align: left;
+            border-collapse: collapse;
+        }
+
+        .bio-table td {
+            padding: 5px 0;
+            vertical-align: top;
+        }
+
+        .label {
+            font-weight: bold;
+            width: 100px;
+            color: #555;
+        }
+
+        .skills {
+            margin: 15px 0;
+            display: flex;
+            flex-wrap: wrap;
+            justify-content: center;
+            gap: 8px;
+        }
+
+        .skill-badge {
+            background-color: #e7f1ff;
+            color: #007bff;
+            padding: 4px 12px;
+            border-radius: 20px;
+            font-size: 12px;
+            font-weight: 500;
+        }
+
+        .social-media {
+            margin: 20px 0;
+            display: flex;
+            justify-content: center;
+            gap: 15px;
+        }
+
+        .social-media a {
+            text-decoration: none;
+            color: #fff;
+            padding: 8px 15px;
+            border-radius: 8px;
+            font-size: 13px;
+            transition: opacity 0.3s;
+        }
+
+        .yt { background-color: #ff0000; }
+        .fb { background-color: #1877f2; }
+        .tk { background-color: #010101; }
+
+        .social-media a:hover {
+            opacity: 0.8;
+        }
+
+        button {
+            background-color: #007bff;
+            color: white;
+            border: none;
+            padding: 10px 20px;
+            border-radius: 25px;
+            cursor: pointer;
+            font-size: 15px;
+            transition: background-color 0.3s;
+            width: 100%;
+        }
+
+        button:hover {
+            background-color: #0056b3;
+        }
+
+        #message {
+            margin-top: 15px;
+            font-weight: bold;
+            color: #28a745;
+            min-height: 20px;
+            font-size: 14px;
+        }
+    </style>
+</head>
+<body>
+
+    <div class="container">
+        <img src="https://api.dicebear.com/7.x/avataaars/svg?seed=Raihan" alt="Avatar Muhammad Raihan" class="profile-pic">
+        
+        <h1>Muhammad Raihan Nur Fadhillah</h1>
+        <div class="info-sekolah">Siswa TJKT • SMK Komputama Majenang</div>
+
+        <table class="bio-table">
+            <tr>
+                <td class="label">Kelas</td>
+                <td>: XII TJKT 2</td>
+            </tr>
+            <tr>
+                <td class="label">Hobi</td>
+                <td>: Bermain Game dan Menonton Anime</td>
+            </tr>
+            <tr>
+                <td class="label">Cita-Cita</td>
+                <td>: Network Engineer / Web Developer</td>
+            </tr>
+        </table>
+        
+        <div class="skills">
+            <span class="skill-badge">MikroTik</span>
+            <span class="skill-badge">HTML/CSS/JS</span>
+            <span class="skill-badge">Cisco</span>
+        </div>
+
+        <div class="social-media">
+            <a href="https://www.youtube.com/@rairimohan" class="yt" target="_blank">YouTube</a>
+            <a href="https://www.tiktok.com/@raihansukaanime" class="tk" target="_blank">TikTok</a>
+        </div>
+
+        <button onclick="tampilkanPesan()">Klik Saya</button>
+        <p id="message"></p>
+    </div>
+
+    <script>
+        function tampilkanPesan() {
+            const pesanElement = document.getElementById('message');
+            const jam = new Date().getHours();
+            let ucapan;
+
+            if (jam < 12) {
+                ucapan = "Selamat Pagi! Semangat Beraktivitas.";
+            } else if (jam < 18) {
+                ucapan = "Selamat Siang! Jangan lupa istirahat.";
+            } else {
+                ucapan = "Selamat Malam! Waktunya Tidur.";
+            }
+
+            pesanElement.innerText = ucapan;
+            
+            const button = document.querySelector('button');
+            button.style.backgroundColor = '#28a745';
+            setTimeout(() => {
+                button.style.backgroundColor = '#007bff';
+            }, 500);
+        }
+    </script>
+
+</body>
+</html>
